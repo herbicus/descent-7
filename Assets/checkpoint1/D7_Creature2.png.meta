@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 8caa82208279245b6a075174ee67a4ee
+guid: 9bf13edb6292f474da66dd8d57b98f66
 TextureImporter:
   fileIDToRecycleName:
-    21300000: D7_Sub_Motion
-    21300002: d7-sub
+    21300000: D7_Creature2
+    21300002: fish-2a
+    21300004: fish-2b
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -23,7 +24,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
@@ -33,7 +34,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -44,6 +45,26 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: fish-2a
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 271
+        height: 200
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fish-2b
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 0
+        width: 271
+        height: 200
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
