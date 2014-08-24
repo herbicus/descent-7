@@ -1,6 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/character/characterController.js">
+    <Files>
+      <File FileName="Assets/Standard Assets (Mobile)/Scripts/myCameraMover.js" Line="17" Column="69" />
+      <File FileName="Assets/Standard Assets (Mobile)/Scripts/titleControl.js" Line="14" Column="38" />
+      <File FileName="Assets/character/characterController.js" Line="38" Column="37" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
