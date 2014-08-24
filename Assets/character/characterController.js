@@ -29,11 +29,12 @@ function OnCollisionEnter2D (other : Collision2D) {
 	};
 	// transform.position.x = spawn.transform.position.x;
 	// transform.position.y = spawn.transform.position.y;
-	transform.position.x =	-98.52702;
-	transform.position.y = 	9.752274;
+	transform.position.x =	-119.0245;
+	transform.position.y = 	5.513453;
 }
 
 function FixedUpdate () {
+
 	//make Character move
 	rigidbody2D.velocity.x = walkSpeed;
 
@@ -46,7 +47,16 @@ function FixedUpdate () {
 
 	var animationController:Animator = this.GetComponent("Animator");
 
-	
+	// Smoothly tilts a transform towards a target rotation.
+		var smooth = 2.0;
+		var tiltAngle = 30.0;
+		var tiltAroundY = Input.GetAxis("Vertical") * tiltAngle;
+		var tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
+		var target = Quaternion.Euler (0, tiltAroundX, tiltAroundY);
+		// Dampen towards the target rotation
+		transform.rotation = Quaternion.Slerp(transform.rotation, target,
+		                               Time.deltaTime * smooth);
+
 	// if (ray.collider) {
 		
 	// 	animationController.SetInteger("state", 0);
