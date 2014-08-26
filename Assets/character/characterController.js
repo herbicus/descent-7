@@ -6,7 +6,7 @@
 // GLOBAL VARIABLE
 var walkSpeed: int = 5;
 var jumpHeight: int = 5;
-// var spawn:GameObject;
+var spawn:GameObject;
 
 function OnTriggerEnter (other : Collider) {
 	Debug.Log("You have picked something up");
@@ -27,10 +27,11 @@ function OnCollisionEnter2D (other : Collision2D) {
 	if (other.gameObject.tag =="no kill") {
 		return true;
 	};
-	// transform.position.x = spawn.transform.position.x;
-	// transform.position.y = spawn.transform.position.y;
-	transform.position.x =	-119.0245;
-	transform.position.y = 	5.513453;
+	transform.position.x = spawn.transform.position.x;
+	transform.position.y = spawn.transform.position.y;
+	Debug.Log("DIE");
+	//transform.position.x =	-119.0245;
+	//transform.position.y = 	5.513453;
 }
 
 function FixedUpdate () {
@@ -41,21 +42,17 @@ function FixedUpdate () {
 	var start = transform.position;
 	start.y -= 1.4;
 
-	Debug.DrawRay(start, -Vector2.up, Color.red, 10);
+	//Debug.DrawRay(start, -Vector2.up, Color.red, 10);
 
-	var ray:RaycastHit2D = Physics2D.Raycast(start, -Vector2.up, 0.01);
+	//var ray:RaycastHit2D = Physics2D.Raycast(start, -Vector2.up, 0.01);
 
 	var animationController:Animator = this.GetComponent("Animator");
 
-	// Smoothly tilts a transform towards a target rotation.
-		var smooth = 2.0;
-		var tiltAngle = 30.0;
-		var tiltAroundY = Input.GetAxis("Vertical") * tiltAngle;
-		var tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
-		var target = Quaternion.Euler (0, tiltAroundX, tiltAroundY);
-		// Dampen towards the target rotation
-		transform.rotation = Quaternion.Slerp(transform.rotation, target,
-		                               Time.deltaTime * smooth);
+	
+	var YVel = rigidbody2D.velocity.y;
+	var smooth = 2.0;
+	var target = Quaternion.Euler (0, 0, YVel * 2);
+	transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
 
 	// if (ray.collider) {
 		
@@ -67,6 +64,10 @@ function FixedUpdate () {
 	if (Input.GetAxis("Vertical") > 0) {
 			// rigidbody2D.velocity.y = jumpHeight;
 		rigidbody2D.AddRelativeForce(Vector3.up * 20);	
+		
+		if (rigidbody2D.velocity.y < -5) {
+			rigidbody2D.AddRelativeForce(Vector3.up * 40);	
+		}
 	};
 
 	// CHECK AND SEE IF USER IS HITING BUTTON/CONTROLLER
